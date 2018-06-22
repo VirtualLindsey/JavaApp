@@ -24,8 +24,7 @@ public class AppController {
 
     @RequestMapping(value="/searchCompany", method= RequestMethod.GET)
     public String recoverPass(@RequestParam("name") String companyName) {
-
-        return companyName;
+        return "single";
     }
 
 }
