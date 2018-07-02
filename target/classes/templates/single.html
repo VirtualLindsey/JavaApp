@@ -3,6 +3,9 @@
     <head>
         <meta charset="UTF-8">
         <title>Single</title>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="events.js"></script>
     </head>
     <body>
         <p>
@@ -12,9 +15,14 @@
         </p>
 
         <p> Single page</p>
-        <form method="GET" name="getCompany" action="/getCompany">
-            <input type="text" name="name"/>
-            <input type="submit"/>
-        </form>
+
+        <input id="name" type="text" name="name"/>
+        <input id="search" type="submit"/>
+
+
+        <p> There are <span id="complaintCount">0</span> complaints for
+            <span id="companyName"> </span>
+        </p>
+    <div id = "chart"></div>
     </body>
 </html>
