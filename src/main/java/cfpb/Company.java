@@ -1,4 +1,4 @@
-package hello;
+package cfpb;
 
 public class Company {
     private final long id;
