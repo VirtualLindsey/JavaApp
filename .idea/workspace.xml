@@ -2,10 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="799bf21a-e0b8-429a-858a-b0e052e937cb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/AppController.java" afterPath="$PROJECT_DIR$/src/main/java/cfpb/AppController.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/Application.java" afterPath="$PROJECT_DIR$/src/main/java/cfpb/Application.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/Company.java" afterPath="$PROJECT_DIR$/src/main/java/cfpb/Company.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/hello/JsonReader.java" afterPath="$PROJECT_DIR$/src/main/java/cfpb/JsonReader.java" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -432,12 +429,12 @@
       <workItem from="1530506311802" duration="1666000" />
       <workItem from="1530508119380" duration="1281000" />
       <workItem from="1530510419651" duration="787000" />
-      <workItem from="1530597690194" duration="469000" />
+      <workItem from="1530597690194" duration="557000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="18886000" />
+    <option name="totallyTimeSpent" value="18974000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="505" y="67" width="1167" height="771" extended-state="0" />
