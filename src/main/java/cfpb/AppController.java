@@ -22,9 +22,4 @@ public class AppController {
         return "compare";
     }
 
-    @RequestMapping(value="/searchCompany", method= RequestMethod.GET)
-    public String recoverPass(@RequestParam("name") String companyName) {
-        return "single";
-    }
-
 }
