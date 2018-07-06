@@ -1,4 +1,7 @@
+var bar_chart_data = {};
+
 $(document).ready(function(){
+
     function removeChart(chart_number){
         alert("working");
         $('#chart' + chart_number).empty();
@@ -27,7 +30,8 @@ $(document).ready(function(){
     $('#search').click(function(){
         $.ajax({
             url: "https://data.consumerfinance.gov/resource/jhzv-w97w.json",
-            data: {"company": $("#name").val()},
+            data: {"company": $("#name").val(),
+                    "$limit": 10000},
             type: "GET",
             beforeSend: function(xhr){xhr.setRequestHeader("X-App-Token","z7A8MAj2zPIpDZ7PaggWlaYDL")},
             success: function(data){
@@ -87,12 +91,12 @@ $(document).ready(function(){
 
         $.ajax({
             url: "https://data.consumerfinance.gov/resource/jhzv-w97w.json",
-            data: {"company": $("#name").val()},
+            data: {"company": $("#name").val(),
+                    "$limit": 10000},
             type: "GET",
             beforeSend: function(xhr){xhr.setRequestHeader("X-App-Token","z7A8MAj2zPIpDZ7PaggWlaYDL")},
             success: function(data){
-                $("#complaintCount").html(data.length);
-                $("#companyName").html($("#name").val());
+
 
                 var complaints = {};
 
@@ -105,7 +109,14 @@ $(document).ready(function(){
                     }
                 });
 
-                var complaints_array = []
+                var company_name = $("#name").val().toLowerCase().trim();
+
+                if(!(company_name in Object.keys(bar_chart_data))){
+                    bar_chart_data.company_name = data.length;
+                }
+
+
+                var complaints_array = [];
 
                 for(key in complaints){
                     complaints_array.push([key, complaints[key]]);
@@ -115,6 +126,9 @@ $(document).ready(function(){
 
                 // Set a callback to run when the Google Visualization API is loaded.
                 google.charts.setOnLoadCallback(drawChart);
+
+
+
 
                 // Callback that creates and populates a data table,
                 // instantiates the pie chart, passes in the data and
@@ -159,9 +173,16 @@ $(document).ready(function(){
 
                     chart.draw(data, options);
                     var removeID = "remove" + id;
+                    $('#'+chart_id).append('<label display="none" id="label' +id+'" value="' + $("#name").val().trim() +'"/>');
                     $('#'+chart_id).append('<input type="button" class="remove" id="' +removeID+'" value="Remove Chart"/>');
 
                     $(document).on("click", "input.remove", function(){
+                        var chart_id = $(this).attr('id');
+                        var id = chart_id.substr(chart_id.length -1);
+                        var company_name = $('#label' + id).attr('value').toLowerCase();
+                        delete bar_chart_data[company_name];
+                        alert(company_name in Object.keys(bar_chart_data));
+
                         $(this).parent().empty();
                     });
 
