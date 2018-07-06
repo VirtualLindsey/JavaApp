@@ -109,10 +109,10 @@ $(document).ready(function(){
                     }
                 });
 
-                var company_name = $("#name").val().toLowerCase().trim();
+                var company_name = $("#name").val().trim();
 
                 if(!(company_name in Object.keys(bar_chart_data))){
-                    bar_chart_data.company_name = data.length;
+                    bar_chart_data[company_name] = data.length;
                 }
 
 
@@ -127,7 +127,7 @@ $(document).ready(function(){
                 // Set a callback to run when the Google Visualization API is loaded.
                 google.charts.setOnLoadCallback(drawChart);
 
-
+                google.charts.setOnLoadCallback(drawBarChart);
 
 
                 // Callback that creates and populates a data table,
@@ -179,13 +179,46 @@ $(document).ready(function(){
                     $(document).on("click", "input.remove", function(){
                         var chart_id = $(this).attr('id');
                         var id = chart_id.substr(chart_id.length -1);
-                        var company_name = $('#label' + id).attr('value').toLowerCase();
+                        var company_name = $('#label' + id).attr('value');
                         delete bar_chart_data[company_name];
-                        alert(company_name in Object.keys(bar_chart_data));
-
+                        drawBarChart();
                         $(this).parent().empty();
                     });
 
+
+
+                    }
+
+                function drawBarChart() {
+                    if(Object.keys(bar_chart_data).length === 0) {
+                        $('#barCharts').empty();
+                    } else {
+                        var bar_data = [
+                            ['Company Name', 'Complaints']
+                        ];
+
+                        $.each(bar_chart_data, function(key, value){
+                            bar_data.push([key, value]);
+                        });
+
+                        var data = google.visualization.arrayToDataTable(bar_data);
+
+                        var options = {
+                            title: 'Total Complaints',
+                            chartArea: {width: '50%'},
+                            hAxis: {
+                                title: 'Total Complaints',
+                                minValue: 0
+                            },
+                            vAxis: {
+                                title: 'Company'
+                            }
+                        };
+
+                        var chart = new google.visualization.BarChart(document.getElementById('barCharts'));
+
+                        chart.draw(data, options);
+                    }
                 }
             }
         });
