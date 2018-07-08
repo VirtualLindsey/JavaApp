@@ -1,31 +1,32 @@
 var bar_chart_data = {};
 
 $(document).ready(function(){
+    var search_results = [];
 
-    function removeChart(chart_number){
-        alert("working");
-        $('#chart' + chart_number).empty();
-    }
+    $('#typeAheadID').on('input', function() {
+        $.ajax({
+            url: "https://data.consumerfinance.gov/resource/jhzv-w97w.json",
+            data: {"$select":"company",
+                "$where": "company like '%" + $("#typeAheadID").val() + "%'",
+                "$group": "company"
+            },
+            type: "GET",
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader("X-App-Token", "z7A8MAj2zPIpDZ7PaggWlaYDL")
+            },
+            success: function (data) {
+                search_results = [];
+                $.each(data, function(index, key) {
+                    search_results.push(key.company);
+                });
 
-    $('#name').on('input', function() {
-        if ($("#name").val().length > 2) {
-            var urlString = "https://data.consumerfinance.gov/resource/jhzv-w97w.json";
-            $.ajax({
-                url: urlString,
-                data: {"$select":"company",
-                    "$where": "starts_with(company,'" + $("#name").val() + "')",
-                    "$group": "company"
-                },
-                type: "GET",
-                beforeSend: function (xhr) {
-                    xhr.setRequestHeader("X-App-Token", "z7A8MAj2zPIpDZ7PaggWlaYDL")
-                },
-                success: function (data) {
-
-                }
-            });
-        }
+                $('#typeAheadID').typeahead({
+                    source: search_results
+                });
+            }
+        });
     });
+
 
     $('#search').click(function(){
         $.ajax({
@@ -49,7 +50,7 @@ $(document).ready(function(){
                     }
                 });
 
-                var complaints_array = []
+                var complaints_array = [];
 
                 for(key in complaints){
                     complaints_array.push([key, complaints[key]]);
@@ -91,7 +92,7 @@ $(document).ready(function(){
 
         $.ajax({
             url: "https://data.consumerfinance.gov/resource/jhzv-w97w.json",
-            data: {"company": $("#name").val(),
+            data: {"company": $("#typeAheadID").val(),
                     "$limit": 10000},
             type: "GET",
             beforeSend: function(xhr){xhr.setRequestHeader("X-App-Token","z7A8MAj2zPIpDZ7PaggWlaYDL")},
@@ -109,7 +110,7 @@ $(document).ready(function(){
                     }
                 });
 
-                var company_name = $("#name").val().trim();
+                var company_name = $("#typeAheadID").val().trim();
 
                 if(!(company_name in Object.keys(bar_chart_data))){
                     bar_chart_data[company_name] = data.length;
@@ -144,7 +145,7 @@ $(document).ready(function(){
 
                     // Set chart options
 
-                    var options = {'title':'Categorical Complaints for: ' + $("#name").val(),
+                    var options = {'title':'Categorical Complaints for: ' + $("#typeAheadID").val(),
                         'width':500,
                         'height':500};
 
@@ -173,7 +174,7 @@ $(document).ready(function(){
 
                     chart.draw(data, options);
                     var removeID = "remove" + id;
-                    $('#'+chart_id).append('<label display="none" id="label' +id+'" value="' + $("#name").val().trim() +'"/>');
+                    $('#'+chart_id).append('<label display="none" id="label' +id+'" value="' + $("#typeAheadID").val().trim() +'"/>');
                     $('#'+chart_id).append('<input type="button" class="remove" id="' +removeID+'" value="Remove Chart"/>');
 
                     $(document).on("click", "input.remove", function(){
