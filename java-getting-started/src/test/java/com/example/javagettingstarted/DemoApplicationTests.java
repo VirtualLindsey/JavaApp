@@ -1,4 +1,4 @@
-package com.example.JavaApp;
+package com.example.javagettingstarted;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

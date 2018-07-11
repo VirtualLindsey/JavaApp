@@ -1,10 +1,42 @@
-# JavaApp
+# java-getting-started
 
-Run this command to start the project:
-mvn spring-boot:run
+[![CircleCI](https://circleci.com/gh/heroku/java-getting-started.svg?style=svg)](https://circleci.com/gh/heroku/java-getting-started)
 
+A barebones Java app, which can easily be deployed to Heroku.
 
-Link to API
-https://www.consumerfinance.gov/data-research/consumer-complaints/
+This application supports the [Getting Started with Java on Heroku](https://devcenter.heroku.com/articles/getting-started-with-java) article - check it out.
 
-https://gist.github.com/cheezitman/80f95adb31e2a1b71e3141a0c425c00d
+[![Deploy to Heroku](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy)
+
+## Running Locally
+
+Make sure you have Java and Maven installed.  Also, install the [Heroku CLI](https://cli.heroku.com/).
+
+```sh
+$ git clone https://github.com/heroku/java-getting-started.git
+$ cd java-getting-started
+$ mvn install
+$ heroku local:start
+```
+
+Your app should now be running on [localhost:5000](http://localhost:5000/).
+
+If you're going to use a database, ensure you have a local `.env` file that reads something like this:
+
+```
+DATABASE_URL=postgres://localhost:5432/java_database_name
+```
+
+## Deploying to Heroku
+
+```sh
+$ heroku create
+$ git push heroku master
+$ heroku open
+```
+
+## Documentation
+
+For more information about using Java on Heroku, see these Dev Center articles:
+
+- [Java on Heroku](https://devcenter.heroku.com/categories/java)

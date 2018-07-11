@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package cfpb;
+package com.example;
 
-
+import com.zaxxer.hikari.HikariConfig;
+import com.zaxxer.hikari.HikariDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
@@ -39,27 +40,42 @@ import java.util.Map;
 @SpringBootApplication
 public class Main {
 
-    public static void main(String[] args) throws Exception {
-        SpringApplication.run(Main.class, args);
+  @Value("${spring.datasource.url}")
+  private String dbUrl;
+
+  @Autowired
+  private DataSource dataSource;
+
+  public static void main(String[] args) throws Exception {
+    SpringApplication.run(Main.class, args);
+  }
+
+  @RequestMapping("/")
+  String index() {
+    return "index";
+  }
+
+  @RequestMapping("/single")
+  String single(@RequestParam(name="name", required=false, defaultValue="single") String name, Model model) {
+    model.addAttribute("name", name);
+    return "single";
+  }
+
+  @RequestMapping("/compare")
+  String compare(@RequestParam(name="name", required=false, defaultValue="compare") String name, Model model) {
+    model.addAttribute("name", name);
+    return "compare";
+  }
+
+  @Bean
+  public DataSource dataSource() throws SQLException {
+    if (dbUrl == null || dbUrl.isEmpty()) {
+      return new HikariDataSource();
+    } else {
+      HikariConfig config = new HikariConfig();
+      config.setJdbcUrl(dbUrl);
+      return new HikariDataSource(config);
     }
-
-    @RequestMapping("/")
-    String index() {
-        return "index";
-    }
-
-    @RequestMapping("/single")
-    String single(@RequestParam(name="name", required=false, defaultValue="single") String name, Model model) {
-        model.addAttribute("name", name);
-        return "single";
-    }
-
-    @RequestMapping("/compare")
-    String compare(@RequestParam(name="name", required=false, defaultValue="compare") String name, Model model) {
-        model.addAttribute("name", name);
-        return "compare";
-    }
-
-
+  }
 
 }
