@@ -40,12 +40,6 @@ import java.util.Map;
 @SpringBootApplication
 public class Main {
 
-  @Value("${spring.datasource.url}")
-  private String dbUrl;
-
-  @Autowired
-  private DataSource dataSource;
-
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
   }
@@ -67,15 +61,13 @@ public class Main {
     return "compare";
   }
 
-  @Bean
-  public DataSource dataSource() throws SQLException {
-    if (dbUrl == null || dbUrl.isEmpty()) {
-      return new HikariDataSource();
-    } else {
-      HikariConfig config = new HikariConfig();
-      config.setJdbcUrl(dbUrl);
-      return new HikariDataSource(config);
-    }
+  @RequestMapping("/login")
+  void login(@RequestParam(name="token", required=true) String token){
+
   }
 
+  @RequestMapping("/logout")
+  void logout(@RequestParam(name="token", required=true) String token){
+
+  }
 }
