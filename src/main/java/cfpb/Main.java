@@ -16,16 +16,16 @@ public class Main {
     }
 
     @RequestMapping("/")
-    public String index(){ return "index";}
+    String index(){ return "index";}
 
     @RequestMapping("/single")
-    public String single(@RequestParam(name="name", required=false, defaultValue="single") String name, Model model) {
+    String single(@RequestParam(name="name", required=false, defaultValue="single") String name, Model model) {
         model.addAttribute("name", name);
         return "single";
     }
 
     @RequestMapping("/compare")
-    public String compare(@RequestParam(name="name", required=false, defaultValue="compare") String name, Model model) {
+    String compare(@RequestParam(name="name", required=false, defaultValue="compare") String name, Model model) {
         model.addAttribute("name", name);
         return "compare";
     }

@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="799bf21a-e0b8-429a-858a-b0e052e937cb" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/main/java/cfpb/Main.java" afterPath="$PROJECT_DIR$/src/main/java/cfpb/Main.java" />
-    </list>
+    <list default="true" id="799bf21a-e0b8-429a-858a-b0e052e937cb" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -493,12 +491,12 @@
       <workItem from="1531200879839" duration="4000" />
       <workItem from="1531202703137" duration="88000" />
       <workItem from="1531272370965" duration="1644000" />
-      <workItem from="1531288614676" duration="885000" />
+      <workItem from="1531288614676" duration="952000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="59326000" />
+    <option name="totallyTimeSpent" value="59393000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-20" y="23" width="915" height="796" extended-state="0" />
