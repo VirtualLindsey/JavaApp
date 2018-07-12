@@ -19,7 +19,7 @@ $(document).ready(function(){
              * client.
              */
             auth2 = gapi.auth2.init({
-                client_id: '480902791681-0jt4uk30kp0s1lgq50ed8aiqtv5geoc9.apps.googleusercontent.com'
+                client_id: '951258662046-uekvbk63hahgj979dgnpsluvrhla2cdj.apps.googleusercontent.com'
             });
 
             // Attach the click handler to the sign-in button
