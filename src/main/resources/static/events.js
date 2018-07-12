@@ -1,5 +1,4 @@
 var bar_chart_data = {};
-var auth2;
 
 $(document).ready(function(){
     if(window.location.href.indexOf("single") > -1 ||
@@ -9,22 +8,6 @@ $(document).ready(function(){
         }
     }
 
-    /**
-     * Initializes the Sign-In client.
-     */
-    /*
-    var initClient = function() {
-        gapi.load('auth2', function(){
-
-            auth2 = gapi.auth2.init({
-                client_id: '550110493997-6a72lr14t0hodn5rp16jplt5u4r9kb0d.apps.googleusercontent.com'
-            });
-
-            // Attach the click handler to the sign-in button
-            auth2.attachClickHandler('signin-button', {}, onSuccess, onFailure);
-        });
-    };
-*/
     $('#signOut').attr('style', 'display: none');
 
 
@@ -48,7 +31,14 @@ $(document).ready(function(){
                 });
 
                 $('#typeAheadID').typeahead({
-                    source: search_results
+                    source: search_results,
+                    templates:{
+                        empty: [
+                            '<div class="empty-message">',
+                            'unable to find any companies match the current query',
+                            '</div>'
+                        ].join('\n')
+                    }
                 });
             }
         });
