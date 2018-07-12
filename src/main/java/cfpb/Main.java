@@ -74,10 +74,12 @@ public class Main {
     if (split.length != 2){
       return "index";
     }
-    if (!sessions.containsKey(split[0]) && !sessions.containsValue(split[1])){
+    if (!sessions.containsKey(split[0])){
       sessions.put(split[0], split[1]);
+      System.out.println("request was successful");
       return "single";
     } else{
+
       return "index";
     }
   }
