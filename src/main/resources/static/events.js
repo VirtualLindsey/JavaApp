@@ -1,6 +1,39 @@
 var bar_chart_data = {};
 
 $(document).ready(function(){
+    var auth2;
+
+    /**
+     * Initializes the Sign-In client.
+     */
+    var initClient = function() {
+        gapi.load('auth2', function(){
+            /**
+             * Retrieve the singleton for the GoogleAuth library and set up the
+             * client.
+             */
+            auth2 = gapi.auth2.init({
+                client_id: 'CLIENT_ID.apps.googleusercontent.com'
+            });
+
+            // Attach the click handler to the sign-in button
+            auth2.attachClickHandler('signin-button', {}, onSuccess, onFailure);
+        });
+    };
+
+    /**
+     * Handle successful sign-ins.
+     */
+    var onSuccess = function(user) {
+        alert('Signed in as ' + user.getBasicProfile().getName());
+    };
+
+    /**
+     * Handle sign-in failures.
+     */
+    var onFailure = function(error) {
+        alert(error);
+    };
     var search_results = [];
 
     $('#typeAheadID').on('input', function() {
