@@ -12,12 +12,10 @@ $(document).ready(function(){
     /**
      * Initializes the Sign-In client.
      */
+    /*
     var initClient = function() {
         gapi.load('auth2', function(){
-            /**
-             * Retrieve the singleton for the GoogleAuth library and set up the
-             * client.
-             */
+
             auth2 = gapi.auth2.init({
                 client_id: '550110493997-6a72lr14t0hodn5rp16jplt5u4r9kb0d.apps.googleusercontent.com'
             });
@@ -26,8 +24,10 @@ $(document).ready(function(){
             auth2.attachClickHandler('signin-button', {}, onSuccess, onFailure);
         });
     };
+*/
+    $('#signOut').attr('style', 'display: none');
 
-    //$('#signOut').attr('style', 'display: none');
+
     var search_results = [];
 
     $('#typeAheadID').on('input', function() {
