@@ -2,8 +2,11 @@ var bar_chart_data = {};
 var auth2;
 
 $(document).ready(function(){
-    if (window.localStorage.getItem("token") == null){
+
+    if (window.localStorage.getItem("token") == null && $.cookie("first_visit") == null){
+        $.cookie("first_visit", 'test', { path: '/', expires: 6 });
         window.location.replace("http://cfpb-ada.herokuapp.com");
+
     }
 
     /**
