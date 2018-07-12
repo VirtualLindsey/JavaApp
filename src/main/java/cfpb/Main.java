@@ -29,6 +29,8 @@ import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
+
+import javax.servlet.http.HttpServletResponse;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
@@ -66,13 +68,14 @@ public class Main {
 
 
   @RequestMapping(value = "/login")
-  String login(@RequestBody String data){
-    if (data == null){
-      return "error";
+  String login(@RequestBody String data, HttpServletResponse response){
+    if (data == null || data == ""){
+      throw new IllegalArgumentException("The 'name' parameter must not be null or empty");
     }
+
     String[] split = data.split("|");
     if (split.length != 2){
-      return "index";
+      throw new IllegalArgumentException("The parameter must be well formed");
     }
     if (!sessions.containsKey(split[0])){
       sessions.put(split[0], split[1]);
