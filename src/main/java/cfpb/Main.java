@@ -25,6 +25,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
@@ -57,7 +58,7 @@ public class Main {
   }
 
 
-  @PostMapping("/login")
+  @PostMapping(value = "/login")
   String login(@RequestParam(name="data", required=true) String data){
     System.out.println(data);
     return "index";
