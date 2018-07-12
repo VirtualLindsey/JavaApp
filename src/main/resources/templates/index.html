@@ -1,77 +1,35 @@
 <!DOCTYPE HTML>
 <html itemscope itemtype="http://schema.org/Article">
-<head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="951258662046-uekvbk63hahgj979dgnpsluvrhla2cdj.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="events.js"></script>
+    <head>
+        <title>Getting Started: Serving Web Content</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="550110493997-6a72lr14t0hodn5rp16jplt5u4r9kb0d.apps.googleusercontent.com">
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="events.js"></script>
 
-</head>
-<body>
-<p>View single company  <a href="/single">here</a></p>
-<p>Compare companies <a href="/compare">here</a></p>
+    </head>
+    <body>
+    <p>View single company  <a href="/single">here</a></p>
+    <p>Compare companies <a href="/compare">here</a></p>
 
-<div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
-<script>
-    function onSignIn(googleUser) {
-        // Useful data for your client-side scripts:
-        var profile = googleUser.getBasicProfile();
-        console.log("ID: " + profile.getId()); // Don't send this directly to your server!
-        console.log('Full Name: ' + profile.getName());
-        console.log('Given Name: ' + profile.getGivenName());
-        console.log('Family Name: ' + profile.getFamilyName());
-        console.log("Image URL: " + profile.getImageUrl());
-        console.log("Email: " + profile.getEmail());
+    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <script>
+        function onSignIn(googleUser) {
+            // Useful data for your client-side scripts:
+            var profile = googleUser.getBasicProfile();
+            console.log("ID: " + profile.getId()); // Don't send this directly to your server!
+            console.log('Full Name: ' + profile.getName());
+            console.log('Given Name: ' + profile.getGivenName());
+            console.log('Family Name: ' + profile.getFamilyName());
+            console.log("Image URL: " + profile.getImageUrl());
+            console.log("Email: " + profile.getEmail());
 
-        // The ID token you need to pass to your backend:
-        var id_token = googleUser.getAuthResponse().id_token;
+            // The ID token you need to pass to your backend:
+            var id_token = googleUser.getAuthResponse().id_token;
 
-        window.localStorage.setItem("token", id_token);
-        $.ajax({
-            type: 'POST',
-            url: 'https://cfpb-ada.herokuapp.com/login',
-            // Always include an `X-Requested-With` header in every AJAX request,
-            // to protect against CSRF attacks.
-            headers: {
-                'X-Requested-With': 'XMLHttpRequest'
-            },
-            contentType: 'application/octet-stream; charset=utf-8',
-            success: function(result) {
-                alert("request worked");
-            },
-            data: id_token,
-            processData: false
-        });
-
-    };
-</script>
-
-<a id="signOut" href="#" onclick="signOut();">Sign out</a>
-<script>
-    function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-
-        auth2.signOut().then(function () {
-            console.log('User signed out.');
-            window.localStorage.removeItem("token");
-            $('#signinButton').attr('style', 'display: inline');
-            $('#signOut').attr('style', 'display: none');
-        });
-    }
-</script>
-
-
-<script>
-    function signInCallback(authResult) {
-        alert(authResult);
-        if (authResult['code']) {
-            // Hide the sign-in button now that the user is authorized, for example:
-            $('#signinButton').attr('style', 'display: none');
-            $('#signOut').attr('style', 'display: inline');
-            // Send the code to the server
+            window.localStorage.setItem("token", id_token);
             $.ajax({
                 type: 'POST',
                 url: 'https://cfpb-ada.herokuapp.com/login',
@@ -84,13 +42,55 @@
                 success: function(result) {
                     alert("request worked");
                 },
-                data: authResult['code'],
+                data: id_token,
                 processData: false
             });
-        } else {
-            alert("call failed");
+
+        };
+    </script>
+
+    <a id="signOut" href="#" onclick="signOut();">Sign out</a>
+    <script>
+        function signOut() {
+            var auth2 = gapi.auth2.getAuthInstance();
+
+            auth2.signOut().then(function () {
+                console.log('User signed out.');
+                window.localStorage.removeItem("token");
+                $('#signinButton').attr('style', 'display: inline');
+                $('#signOut').attr('style', 'display: none');
+            });
         }
-    }
-</script>
-</body>
+    </script>
+
+
+    <script>
+        function signInCallback(authResult) {
+            alert(authResult);
+            if (authResult['code']) {
+                // Hide the sign-in button now that the user is authorized, for example:
+                $('#signinButton').attr('style', 'display: none');
+                $('#signOut').attr('style', 'display: inline');
+                // Send the code to the server
+                $.ajax({
+                    type: 'POST',
+                    url: 'https://cfpb-ada.herokuapp.com/login',
+                    // Always include an `X-Requested-With` header in every AJAX request,
+                    // to protect against CSRF attacks.
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    contentType: 'application/octet-stream; charset=utf-8',
+                    success: function(result) {
+                        alert("request worked");
+                    },
+                    data: authResult['code'],
+                    processData: false
+                });
+            } else {
+                alert("call failed");
+            }
+        }
+    </script>
+    </body>
 </html>
