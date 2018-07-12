@@ -28,7 +28,8 @@
 
         // The ID token you need to pass to your backend:
         var id_token = googleUser.getAuthResponse().id_token;
-
+        var str = "{\"token\": id_token, \"email\":profile.getEmail}"
+        var json = JSON.stringify(eval("(" + str + ")"));
         $.ajax({
             type: 'POST',
             url: 'https://cfpb-ada.herokuapp.com/login',
@@ -41,7 +42,7 @@
             success: function(result) {
                 alert("request worked");
             },
-            data: {"token": id_token, "email":profile.getEmail},
+            data: json,
             processData: false
         });
 

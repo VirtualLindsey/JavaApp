@@ -70,6 +70,7 @@ public class Main {
 
   @RequestMapping(value = "/login")
   String login(@RequestBody Json data, HttpServletResponse response){
+    System.out.println("################");
     System.out.println(data);
     /*
     if (data == null || data == ""){

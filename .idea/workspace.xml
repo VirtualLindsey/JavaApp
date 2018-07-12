@@ -4,7 +4,6 @@
     <list default="true" id="799bf21a-e0b8-429a-858a-b0e052e937cb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/src/main/java/cfpb/Main.java" afterPath="$PROJECT_DIR$/src/main/java/cfpb/Main.java" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -52,8 +51,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/cfpb/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="381">
-              <caret line="89" column="4" lean-forward="false" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
+            <state relative-caret-position="126">
+              <caret line="72" column="43" lean-forward="false" selection-start-line="72" selection-start-column="43" selection-end-line="72" selection-end-column="43" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1816#1832#0" expanded="true" />
@@ -476,12 +475,12 @@
       <workItem from="1531202703137" duration="88000" />
       <workItem from="1531272370965" duration="1644000" />
       <workItem from="1531288614676" duration="4843000" />
-      <workItem from="1531368616423" duration="11079000" />
+      <workItem from="1531368616423" duration="11229000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="74363000" />
+    <option name="totallyTimeSpent" value="74513000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="380" y="24" width="1050" height="796" extended-state="0" />
@@ -766,8 +765,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cfpb/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="381">
-          <caret line="89" column="4" lean-forward="false" selection-start-line="89" selection-start-column="4" selection-end-line="89" selection-end-column="4" />
+        <state relative-caret-position="126">
+          <caret line="72" column="43" lean-forward="false" selection-start-line="72" selection-start-column="43" selection-end-line="72" selection-end-column="43" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1816#1832#0" expanded="true" />
