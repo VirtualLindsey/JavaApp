@@ -4,8 +4,8 @@
         <title>Getting Started: Serving Web Content</title>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
         <meta name="google-signin-scope" content="profile email">
-        <meta name="google-signin-client_id" content="550110493997-6a72lr14t0hodn5rp16jplt5u4r9kb0d.apps.googleusercontent.com">
         <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <meta name="google-signin-client_id" content="160162923887-g3vkhee7j8hkorp7brqerk3fpkbr42m4.apps.googleusercontent.com">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
         <script src="events.js"></script>
 
@@ -14,7 +14,7 @@
     <p>View single company  <a href="/single">here</a></p>
     <p>Compare companies <a href="/compare">here</a></p>
 
-    <div class="g-signin2" data-onsuccess="onSignIn" data-theme="dark"></div>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
     <script>
         function onSignIn(googleUser) {
             // Useful data for your client-side scripts:
@@ -30,22 +30,6 @@
             var id_token = googleUser.getAuthResponse().id_token;
 
             window.localStorage.setItem("token", id_token);
-            $.ajax({
-                type: 'POST',
-                url: 'https://cfpb-ada.herokuapp.com/login',
-                // Always include an `X-Requested-With` header in every AJAX request,
-                // to protect against CSRF attacks.
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
-                contentType: 'application/octet-stream; charset=utf-8',
-                success: function(result) {
-                    alert("request worked");
-                },
-                data: id_token,
-                processData: false
-            });
-
         };
     </script>
 
