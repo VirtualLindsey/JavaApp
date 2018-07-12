@@ -31,8 +31,14 @@ $(document).ready(function(){
                 });
 
                 $('#typeAheadID').typeahead({
-                    source: search_results
-
+                    source: search_results,
+                    templates:{
+                        empty: [
+                            '<div class="empty-message">',
+                            'unable to find any companies match the current query',
+                            '</div>'
+                        ].join('\n')
+                    }
                 });
             }
         });
