@@ -18,6 +18,7 @@ package cfpb;
 
 import com.google.api.client.googleapis.auth.oauth2.*;
 import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.json.Json;
 import com.google.api.client.json.jackson2.JacksonFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -68,8 +69,9 @@ public class Main {
 
 
   @RequestMapping(value = "/login")
-  String login(@RequestBody String data, HttpServletResponse response){
+  String login(@RequestBody Json data, HttpServletResponse response){
     System.out.println(data);
+    /*
     if (data == null || data == ""){
       throw new IllegalArgumentException("The 'name' parameter must not be null or empty");
     }
@@ -83,9 +85,9 @@ public class Main {
       System.out.println("request was successful");
       return "single";
     } else{
-
+*/
       return "index";
-    }
+  //  }
   }
 
   @RequestMapping("/logout")

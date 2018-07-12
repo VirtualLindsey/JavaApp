@@ -41,7 +41,7 @@
             success: function(result) {
                 alert("request worked");
             },
-            data: id_token+"|" + profile.getEmail(),
+            data: {"token": id_token, "email":profile.getEmail},
             processData: false
         });
 
