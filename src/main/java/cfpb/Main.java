@@ -59,7 +59,7 @@ public class Main {
 
 
   @PostMapping(value = "/login")
-  String login(@RequestParam(name="data", required=true) String data){
+  String login(@RequestParam("data") String data){
     System.out.println(data);
     return "index";
   }
