@@ -23,10 +23,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
 import java.io.FileReader;
@@ -61,10 +58,8 @@ public class Main {
 
 
   @PostMapping(value = "/login")
-  String login(@RequestParam("data") String[] data){
-    for (int i = 0; i < data.length; i ++){
-      System.out.println(data[i]);
-    }
+  String login(@RequestBody String data){
+    System.out.println(data);
     return "index";
   }
   /*
