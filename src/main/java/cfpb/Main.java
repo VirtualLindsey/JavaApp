@@ -30,6 +30,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
 import java.io.FileReader;
+import java.util.HashMap;
+
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.Constants.REDIRECT_URI;
 
 @Controller
@@ -59,8 +61,10 @@ public class Main {
 
 
   @PostMapping(value = "/login")
-  String login(@RequestParam("data") String data){
-    System.out.println(data);
+  String login(@RequestParam("data") String[] data){
+    for (int i = 0; i < data.length; i ++){
+      System.out.println(data[i]);
+    }
     return "index";
   }
   /*
