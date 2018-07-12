@@ -2,7 +2,10 @@ var bar_chart_data = {};
 var auth2;
 
 $(document).ready(function(){
-    alert(window.localStorage.getItem("token"));
+    if (window.localStorage.getItem("token") == null){
+        window.location.replace("http://stackoverflow.com");
+    }
+
     /**
      * Initializes the Sign-In client.
      */
