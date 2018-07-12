@@ -3,7 +3,7 @@ var auth2;
 
 $(document).ready(function(){
     if (window.localStorage.getItem("token") == null){
-        window.location.replace("http://stackoverflow.com");
+        window.location.replace("http://www.cfpb-ada.herokuapp.com");
     }
 
     /**
