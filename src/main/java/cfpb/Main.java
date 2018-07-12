@@ -76,9 +76,10 @@ public class Main {
 
     if (!sessions.contains(data)){
       sessions.add(data);
+      System.out.println("returning single page?");
       return "single";
     } else {
-
+      System.out.println("returing index");
       return "index";
     }
   }
