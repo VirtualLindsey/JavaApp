@@ -68,7 +68,7 @@ public class Main {
   @PostMapping(value = "/login")
   String login(@RequestBody String data){
     System.out.println(data);
-    if data in
+
 
     return "index";
   }
