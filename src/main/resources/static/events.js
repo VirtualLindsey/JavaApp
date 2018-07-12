@@ -90,7 +90,6 @@ $(document).ready(function(){
     });
 
     $('#compareSearch').click(function(){
-
         $.ajax({
             url: "https://data.consumerfinance.gov/resource/jhzv-w97w.json",
             data: {"company": $("#typeAheadID").val(),

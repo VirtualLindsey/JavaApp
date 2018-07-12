@@ -65,15 +65,41 @@ public class Main {
   }
 
 
-  @PostMapping(value = "/login")
+  @RequestMapping(value = "/login")
   String login(@RequestBody String data){
-    System.out.println(data);
+    if (data == null){
+      return "error";
+    }
+    String[] split = data.split("|");
+    if (split.length != 2){
+      return "index";
+    }
+    if (!sessions.containsKey(split[0]) && !sessions.containsValue(split[1])){
+      sessions.put(split[0], split[1]);
+      return "single";
+    } else{
+      return "index";
+    }
+  }
 
+  @RequestMapping("/logout")
+  String logout(@RequestBody String data){
+    if (data == null){
+      return "error";
+    }
+
+    String[] split = data.split("|");
+
+    if (split.length != 2){
+      return "error";
+    }
+
+    if (!sessions.containsKey(split[0]) || sessions.get(split[0]) != split[1]){
+      return "error";
+    }
+
+    sessions.remove(split[0]);
 
     return "index";
   }
-  /*
-  @RequestMapping("/logout")
-  void logout(@RequestParam(name="token", required=true) String token){
-  }*/
 }
