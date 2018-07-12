@@ -56,6 +56,7 @@
 
         auth2.signOut().then(function () {
             console.log('User signed out.');
+            window.localStorage.removeItem("token");
             $('#signinButton').attr('style', 'display: inline');
             $('#signOut').attr('style', 'display: none');
         });
