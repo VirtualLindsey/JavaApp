@@ -35,16 +35,14 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.Constants.REDIRECT_URI;
 
 @Controller
 @SpringBootApplication
 public class Main {
-  private Map<String, String> sessions = new HashMap<String, String>();
+  private ArrayList<String> sessions = new ArrayList<String>();
 
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
@@ -69,46 +67,34 @@ public class Main {
 
 
   @RequestMapping(value = "/login")
-  String login(@RequestBody String[] data, HttpServletResponse response){
-    System.out.println("################");
-    System.out.println(data[0]);
-    System.out.println(data[1]);
-    /*
+  String login(@RequestBody String data, HttpServletResponse response){
+
+
     if (data == null || data == ""){
       throw new IllegalArgumentException("The 'name' parameter must not be null or empty");
     }
 
-    String[] split = data.split("|");
-    if (split.length != 2){
-      throw new IllegalArgumentException("The parameter must be well formed");
-    }
-    if (!sessions.containsKey(split[0])){
-      sessions.put(split[0], split[1]);
-      System.out.println("request was successful");
+    if (!sessions.contains(data)){
+      sessions.add(data);
       return "single";
-    } else{
-*/
+    } else {
+
       return "index";
-  //  }
+    }
   }
 
   @RequestMapping("/logout")
   String logout(@RequestBody String data){
-    if (data == null){
-      return "error";
+    if (data == null || data == ""){
+      throw new IllegalArgumentException("The 'name' parameter must not be null or empty");
     }
 
-    String[] split = data.split("|");
 
-    if (split.length != 2){
-      return "error";
+    if (!sessions.contains(data)){
+      throw new IllegalArgumentException("Must have a valid session");
     }
 
-    if (!sessions.containsKey(split[0]) || sessions.get(split[0]) != split[1]){
-      return "error";
-    }
-
-    sessions.remove(split[0]);
+    sessions.remove(data);
 
     return "index";
   }
