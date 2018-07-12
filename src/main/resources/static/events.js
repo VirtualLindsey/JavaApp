@@ -2,7 +2,7 @@ var bar_chart_data = {};
 var auth2;
 
 $(document).ready(function(){
-    alert(sessionStorage.getItem("auth2"));
+    alert(localStorage.getItem("auth2"));
     /**
      * Initializes the Sign-In client.
      */
@@ -16,7 +16,7 @@ $(document).ready(function(){
                 client_id: '480902791681-0jt4uk30kp0s1lgq50ed8aiqtv5geoc9.apps.googleusercontent.com'
             });
 
-            sessionStorage.setItem("auth2",auth2);
+            localStorage.setItem("auth2",auth2);
 
             // Attach the click handler to the sign-in button
             auth2.attachClickHandler('signin-button', {}, onSuccess, onFailure);
