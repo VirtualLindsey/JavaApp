@@ -1,6 +1,26 @@
 var bar_chart_data = {};
+var auth2;
 
 $(document).ready(function(){
+    alert(auth2 == null);
+    /**
+     * Initializes the Sign-In client.
+     */
+    var initClient = function() {
+        gapi.load('auth2', function(){
+            /**
+             * Retrieve the singleton for the GoogleAuth library and set up the
+             * client.
+             */
+            auth2 = gapi.auth2.init({
+                client_id: '480902791681-0jt4uk30kp0s1lgq50ed8aiqtv5geoc9.apps.googleusercontent.com'
+            });
+
+            // Attach the click handler to the sign-in button
+            auth2.attachClickHandler('signin-button', {}, onSuccess, onFailure);
+        });
+    };
+
     //$('#signOut').attr('style', 'display: none');
     var search_results = [];
 
