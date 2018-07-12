@@ -1,7 +1,7 @@
 var bar_chart_data = {};
 
 $(document).ready(function(){
-    $('#signOut').attr('style', 'display: none');
+    //$('#signOut').attr('style', 'display: none');
 
     var search_results = [];
 

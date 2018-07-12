@@ -69,9 +69,10 @@ public class Main {
 
 
   @RequestMapping(value = "/login")
-  String login(@RequestBody Json data, HttpServletResponse response){
+  String login(@RequestBody String[] data, HttpServletResponse response){
     System.out.println("################");
-    System.out.println(data);
+    System.out.println(data[0]);
+    System.out.println(data[1]);
     /*
     if (data == null || data == ""){
       throw new IllegalArgumentException("The 'name' parameter must not be null or empty");
