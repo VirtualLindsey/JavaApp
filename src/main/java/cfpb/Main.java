@@ -58,8 +58,8 @@ public class Main {
 
 
   @PostMapping("/login")
-  String login(@RequestParam(name="token", required=true) String token){
-    System.out.println(token);
+  String login(@RequestParam(name="data", required=true) String data){
+    System.out.println(data);
     return "index";
   }
   /*
