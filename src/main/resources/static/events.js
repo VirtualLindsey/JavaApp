@@ -2,7 +2,7 @@ var bar_chart_data = {};
 var auth2;
 
 $(document).ready(function(){
-    alert(localStorage.getItem("auth2"));
+    alert(window.localStorage.getItem("token"));
     /**
      * Initializes the Sign-In client.
      */
@@ -15,8 +15,6 @@ $(document).ready(function(){
             auth2 = gapi.auth2.init({
                 client_id: '480902791681-0jt4uk30kp0s1lgq50ed8aiqtv5geoc9.apps.googleusercontent.com'
             });
-
-            localStorage.setItem("auth2",auth2);
 
             // Attach the click handler to the sign-in button
             auth2.attachClickHandler('signin-button', {}, onSuccess, onFailure);
