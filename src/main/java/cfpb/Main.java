@@ -26,14 +26,22 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 
 import static com.sun.org.apache.xalan.internal.xsltc.compiler.Constants.REDIRECT_URI;
 
 @Controller
 @SpringBootApplication
 public class Main {
+  private Map<String, String> sessions = new HashMap<String, String>();
 
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
@@ -60,6 +68,8 @@ public class Main {
   @PostMapping(value = "/login")
   String login(@RequestBody String data){
     System.out.println(data);
+    if data in
+
     return "index";
   }
   /*
