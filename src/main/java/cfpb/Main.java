@@ -14,27 +14,22 @@
  * limitations under the License.
  */
 
-package com.example;
+package cfpb;
 
-import com.zaxxer.hikari.HikariConfig;
-import com.zaxxer.hikari.HikariDataSource;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
+import com.google.api.client.googleapis.auth.oauth2.*;
+import com.google.api.client.http.javanet.NetHttpTransport;
+import com.google.api.client.json.jackson2.JacksonFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.sql.DataSource;
-import java.sql.Connection;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Map;
+import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
+import java.io.FileReader;
+import static com.sun.org.apache.xalan.internal.xsltc.compiler.Constants.REDIRECT_URI;
 
 @Controller
 @SpringBootApplication
@@ -61,13 +56,14 @@ public class Main {
     return "compare";
   }
 
-  @RequestMapping("/login")
-  void login(@RequestParam(name="token", required=true) String token){
 
+  @PostMapping("/login")
+  String login(@RequestParam(name="token", required=true) String token){
+    System.out.println(token);
+    return "index";
   }
-
+  /*
   @RequestMapping("/logout")
   void logout(@RequestParam(name="token", required=true) String token){
-
-  }
+  }*/
 }
