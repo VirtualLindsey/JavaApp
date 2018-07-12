@@ -69,6 +69,7 @@ public class Main {
 
   @RequestMapping(value = "/login")
   String login(@RequestBody String data, HttpServletResponse response){
+    System.out.println(data);
     if (data == null || data == ""){
       throw new IllegalArgumentException("The 'name' parameter must not be null or empty");
     }
