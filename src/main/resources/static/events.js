@@ -89,7 +89,7 @@ $(document).ready(function(){
                         'width':700,
                         'height':700};
 
-                    var chart = new google.visualization.PieChart(document.getElementById('charts'));
+                    var chart = new google.visualization.PieChart(document.getElementById('chart'));
 
                     chart.draw(data, options);
 
