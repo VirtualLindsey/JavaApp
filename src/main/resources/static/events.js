@@ -81,8 +81,8 @@ $(document).ready(function(){
                     data.addRows(complaints_array);
 
 
-
-                    var options = {'title': count + ' categorical complaints for: ' + $("#typeAheadID").val(),
+                    var title = count + ' categorical complaints for: ' + $("#typeAheadID").val();
+                    var options = {'title': title,
                         'width':700,
                         'height':700};
 
@@ -151,8 +151,8 @@ $(document).ready(function(){
                     data.addRows(complaints_array);
 
                     // Set chart options
-
-                    var options = {'title': count + ' categorical complaints for: ' + $("#typeAheadID").val(),
+                    var title = count + ' categorical complaints for: ' + $("#typeAheadID").val();
+                    var options = {'title': title,
                         'width':500,
                         'height':500};
 
