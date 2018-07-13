@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="799bf21a-e0b8-429a-858a-b0e052e937cb" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/static/events.js" afterPath="$PROJECT_DIR$/src/main/resources/static/events.js" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/static/scrolling-nav.css" afterPath="$PROJECT_DIR$/src/main/resources/static/scrolling-nav.css" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
@@ -37,11 +39,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="scrolling-nav.css" pinned="false" current-in-tab="true">
+      <file leaf-file-name="scrolling-nav.css" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/scrolling-nav.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="51" column="7" lean-forward="false" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
+            <state relative-caret-position="366">
+              <caret line="71" column="13" lean-forward="false" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -67,11 +69,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="events.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="events.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/static/events.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="328">
-              <caret line="164" column="34" lean-forward="false" selection-start-line="164" selection-start-column="28" selection-end-line="164" selection-end-column="34" />
+            <state relative-caret-position="289">
+              <caret line="159" column="38" lean-forward="true" selection-start-line="159" selection-start-column="38" selection-end-line="159" selection-end-column="38" />
               <folding>
                 <element signature="e#1195#3295#0" expanded="false" />
               </folding>
@@ -158,9 +160,9 @@
         <option value="$PROJECT_DIR$/src/main/java/cfpb/Main.java" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/single.html" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
-        <option value="$PROJECT_DIR$/src/main/resources/static/events.js" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/compare.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/scrolling-nav.css" />
+        <option value="$PROJECT_DIR$/src/main/resources/static/events.js" />
       </list>
     </option>
   </component>
@@ -473,7 +475,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="89168000" />
+    <option name="totallyTimeSpent" value="89318000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="146" y="23" width="1176" height="796" extended-state="0" />
@@ -757,16 +759,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/static/events.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="328">
-          <caret line="164" column="34" lean-forward="false" selection-start-line="164" selection-start-column="28" selection-end-line="164" selection-end-column="34" />
-          <folding>
-            <element signature="e#1195#3295#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/adaProject.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -793,9 +785,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/static/scrolling-nav.css">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="51" column="7" lean-forward="false" selection-start-line="51" selection-start-column="7" selection-end-line="51" selection-end-column="7" />
+        <state relative-caret-position="366">
+          <caret line="71" column="13" lean-forward="false" selection-start-line="71" selection-start-column="13" selection-end-line="71" selection-end-column="13" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/static/events.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="289">
+          <caret line="159" column="38" lean-forward="true" selection-start-line="159" selection-start-column="38" selection-end-line="159" selection-end-column="38" />
+          <folding>
+            <element signature="e#1195#3295#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
