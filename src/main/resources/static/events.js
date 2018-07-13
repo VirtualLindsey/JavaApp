@@ -8,9 +8,10 @@ $(document).ready(function(){
         }
     }
 
-    $(document).on('mouseover', '#typeAheadID', function(){
-        console.log("hitme");
+    $(document).on("typeahead:beforeselect", function(event, data) {
+        event.preventDefault();
     });
+
     var search_results = [];
 
     $('#typeAheadID').on('input', function() {
@@ -31,7 +32,9 @@ $(document).ready(function(){
                 });
 
                 $('#typeAheadID').typeahead({
-                    source: search_results
+                    source: search_results,
+                    highlight: true,
+                    minLength: 1
                 });
             }
         });
