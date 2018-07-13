@@ -38,7 +38,7 @@
                                 auth2.signOut().then(function () {
                                     console.log('User signed out.');
                                     window.localStorage.removeItem("token");
-                                    //$('#signinButton').attr('style', 'display: inline');
+
                                     $('#signOut').attr('style', 'display: none');
                                 });
                             }
@@ -70,7 +70,6 @@
 
                             // The ID token you need to pass to your backend:
                             var id_token = googleUser.getAuthResponse().id_token;
-                            $('#signOut').attr('style', 'display: inline');
                             $('#signinButton').attr('style', 'display: none');
                             window.localStorage.setItem("token", id_token);
                         };
