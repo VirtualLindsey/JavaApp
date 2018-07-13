@@ -27,7 +27,10 @@ section {
   width:150px;
 }
 
-
 .g-signin2{
   margin-left: 300px;
+}
+
+.mx-auto{
+  text-align: center;
 }
