@@ -66,12 +66,12 @@ $(document).ready(function(){
                 google.charts.load('current', {'packages':['corechart']});
 
                 // Set a callback to run when the Google Visualization API is loaded.
-                google.charts.setOnLoadCallback(drawChart);
+                google.charts.setOnLoadCallback(drawChart(data.length));
 
                 // Callback that creates and populates a data table,
                 // instantiates the pie chart, passes in the data and
                 // draws it.
-                function drawChart() {
+                function drawChart(count) {
 
                     // Create the data table.
                     var data = new google.visualization.DataTable();
@@ -82,7 +82,7 @@ $(document).ready(function(){
 
 
 
-                    var options = {'title': data.length + ' categorical complaints for: ' + $("#typeAheadID").val(),
+                    var options = {'title': count + ' categorical complaints for: ' + $("#typeAheadID").val(),
                         'width':700,
                         'height':700};
 
@@ -135,13 +135,13 @@ $(document).ready(function(){
                 // Set a callback to run when the Google Visualization API is loaded.
                 google.charts.setOnLoadCallback(drawChart);
 
-                google.charts.setOnLoadCallback(drawBarChart);
+                google.charts.setOnLoadCallback(drawBarChart(data.length));
 
 
                 // Callback that creates and populates a data table,
                 // instantiates the pie chart, passes in the data and
                 // draws it.
-                function drawChart() {
+                function drawChart(count) {
 
                     // Create the data table.
                     var data = new google.visualization.DataTable();
@@ -152,7 +152,7 @@ $(document).ready(function(){
 
                     // Set chart options
 
-                    var options = {'title': data.length + ' categorical complaints for: ' + $("#typeAheadID").val(),
+                    var options = {'title': count + ' categorical complaints for: ' + $("#typeAheadID").val(),
                         'width':500,
                         'height':500};
 
