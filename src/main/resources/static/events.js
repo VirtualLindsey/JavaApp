@@ -133,7 +133,7 @@ $(document).ready(function(){
                 google.charts.load('current', {'packages':['corechart']});
 
                 // Set a callback to run when the Google Visualization API is loaded.
-                google.charts.setOnLoadCallback(drawChart);
+                google.charts.setOnLoadCallback(drawChart(data.length));
 
                 google.charts.setOnLoadCallback(drawBarChart(data.length));
 
@@ -197,7 +197,7 @@ $(document).ready(function(){
 
                     }
 
-                function drawBarChart() {
+                function drawBarChart(count) {
                     if(Object.keys(bar_chart_data).length === 0) {
                         $('#barCharts').empty();
                     } else {
