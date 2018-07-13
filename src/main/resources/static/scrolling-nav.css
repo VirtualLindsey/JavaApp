@@ -42,3 +42,8 @@ section {
 #chart{
   margin-left: 25%;
 }
+
+#chart1{
+  width: 400px;
+  height: 400px;
+}
