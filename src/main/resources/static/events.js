@@ -68,6 +68,9 @@ $(document).ready(function(){
                 // Set a callback to run when the Google Visualization API is loaded.
                 google.charts.setOnLoadCallback(drawChart);
 
+                var counts = "<p> There are " + data.length +" complaints logged against " +
+                    $("#typeAheadID").val() +"  </p>";
+                $('charts').prepend(counts);
                 // Callback that creates and populates a data table,
                 // instantiates the pie chart, passes in the data and
                 // draws it.
@@ -89,6 +92,7 @@ $(document).ready(function(){
                     var chart = new google.visualization.PieChart(document.getElementById('charts'));
 
                     chart.draw(data, options);
+
                 }
             }
         });

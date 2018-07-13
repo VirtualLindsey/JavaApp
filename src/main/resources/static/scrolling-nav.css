@@ -34,3 +34,7 @@ section {
 .mx-auto{
   text-align: center;
 }
+
+#typeAheadID{
+  width: 300px;
+}
