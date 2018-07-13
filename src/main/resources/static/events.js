@@ -8,6 +8,9 @@ $(document).ready(function(){
         }
     }
 
+    $(document).on('mouseover', '#typeAheadID', function(){
+        console.log("hitme");
+    });
     var search_results = [];
 
     $('#typeAheadID').on('input', function() {

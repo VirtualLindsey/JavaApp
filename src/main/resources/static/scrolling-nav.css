@@ -51,6 +51,7 @@ section {
   width: 275px;
   height: 275px;
   float: left;
+  margin-left: 2%;
 }
 
 #chart2{
