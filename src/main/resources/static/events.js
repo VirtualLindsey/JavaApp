@@ -80,7 +80,7 @@ $(document).ready(function(){
                     data.addRows(complaints_array);
 
 
-                    var title =  count + ' categorical complaints for: ' + $("#typeAheadID").val();
+                    var title =  count + ' complaints for: ' + $("#typeAheadID").val();
                     var options = {'title': title,
                         'width':700,
                         'height':700};
@@ -132,9 +132,13 @@ $(document).ready(function(){
                 google.charts.load('current', {'packages':['corechart']});
 
                 // Set a callback to run when the Google Visualization API is loaded.
-                google.charts.setOnLoadCallback(drawChart(data.length));
+                google.charts.setOnLoadCallback(function(){
+                    drawChart(data.length);
+                });
 
-                google.charts.setOnLoadCallback(drawBarChart(data.length));
+                google.charts.setOnLoadCallback(function(){
+                    drawBarChart(data.length)
+                });
 
 
                 // Callback that creates and populates a data table,
@@ -150,7 +154,7 @@ $(document).ready(function(){
                     data.addRows(complaints_array);
 
                     // Set chart options
-                    var title = count + ' categorical complaints for: ' + $("#typeAheadID").val();
+                    var title = count + ' complaints for: ' + $("#typeAheadID").val();
                     var options = {'title': title,
                         'width':500,
                         'height':500};
