@@ -43,8 +43,6 @@ $(document).ready(function(){
             type: "GET",
             beforeSend: function(xhr){xhr.setRequestHeader("X-App-Token","z7A8MAj2zPIpDZ7PaggWlaYDL")},
             success: function(data){
-                $("#complaintCount").html(data.length);
-                $("#companyName").html($("#typeAheadID").val());
 
                 var complaints = {};
 
@@ -66,13 +64,12 @@ $(document).ready(function(){
                 google.charts.load('current', {'packages':['corechart']});
 
                 // Set a callback to run when the Google Visualization API is loaded.
-                google.charts.setOnLoadCallback(drawChart(data.length));
+                google.charts.setOnLoadCallback(drawChart);
 
                 // Callback that creates and populates a data table,
                 // instantiates the pie chart, passes in the data and
                 // draws it.
-                function drawChart(count) {
-
+                function drawChart() {
                     // Create the data table.
                     var data = new google.visualization.DataTable();
                     data.addColumn('string', 'Complaint');
@@ -81,7 +78,7 @@ $(document).ready(function(){
                     data.addRows(complaints_array);
 
 
-                    var title = count + ' categorical complaints for: ' + $("#typeAheadID").val();
+                    var title =  ' categorical complaints for: ' + $("#typeAheadID").val();
                     var options = {'title': title,
                         'width':700,
                         'height':700};
