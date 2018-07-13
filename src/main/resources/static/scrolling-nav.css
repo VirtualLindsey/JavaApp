@@ -43,6 +43,10 @@ section {
   margin-left: 25%;
 }
 
+#charts{
+  margin-top: 10px;
+}
+
 #chart1{
   width: 275px;
   height: 275px;
@@ -77,4 +81,8 @@ section {
 #barCharts{
   clear: left;
   padding-top: 75px;
+}
+
+.remove{
+  margin-left: 25%;
 }
