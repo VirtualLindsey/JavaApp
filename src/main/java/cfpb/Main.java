@@ -79,38 +79,4 @@ public class Main {
     return "compare";
   }
 
-
-  @RequestMapping(value = "/login")
-  String login(@RequestBody String data, HttpServletResponse response){
-
-
-    if (data == null || data == ""){
-      throw new IllegalArgumentException("The 'name' parameter must not be null or empty");
-    }
-
-    if (!sessions.contains(data)){
-      sessions.add(data);
-      System.out.println("returning single page?");
-      return "single";
-    } else {
-      System.out.println("returing index");
-      return "index";
-    }
-  }
-
-  @RequestMapping("/logout")
-  String logout(@RequestBody String data){
-    if (data == null || data == ""){
-      throw new IllegalArgumentException("The 'name' parameter must not be null or empty");
-    }
-
-
-    if (!sessions.contains(data)){
-      throw new IllegalArgumentException("Must have a valid session");
-    }
-
-    sessions.remove(data);
-
-    return "index";
-  }
 }
