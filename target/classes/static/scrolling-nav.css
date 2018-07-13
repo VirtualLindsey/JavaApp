@@ -1,0 +1,89 @@
+/*!
+ * Start Bootstrap - Scrolling Nav (https://startbootstrap.com/template-overviews/scrolling-nav)
+ * Copyright 2013-2017 Start Bootstrap
+ * Licensed under MIT (https://github.com/BlackrockDigital/startbootstrap-scrolling-nav/blob/master/LICENSE)
+ */
+
+header {
+  padding: 154px 0 100px;
+}
+
+@media (min-width: 992px) {
+  header {
+    padding: 100px 0 75px;
+  }
+}
+
+section {
+  padding: 75px 0;
+}
+
+#about {
+  padding:75px 0;
+}
+
+.abcRioButton{
+  height:36px;
+  width:150px;
+}
+
+.g-signin2{
+  margin-left: 300px;
+}
+
+.mx-auto{
+  text-align: center;
+}
+
+#typeAheadID{
+  width: 300px;
+}
+
+#chart{
+  margin-left: 25%;
+}
+
+#charts{
+  margin-top: 10px;
+}
+
+#chart1{
+  width: 275px;
+  height: 275px;
+  float: left;
+  margin-left: 2%;
+}
+
+#chart2{
+  width: 275px;
+  height: 275px;
+  float: left;
+}
+
+#chart3{
+  width: 275px;
+  height: 275px;
+  float: left;
+}
+
+#chart4{
+  width: 275px;
+  height: 275px;
+  float: left;
+}
+
+#chart5{
+  width: 275px;
+  height: 275px;
+  float: left;
+}
+
+
+#barCharts{
+  clear: left;
+  padding-top: 75px;
+}
+
+.remove{
+  margin-left: 25%;
+}

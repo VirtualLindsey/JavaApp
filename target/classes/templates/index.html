@@ -1,77 +1,94 @@
 <!DOCTYPE HTML>
 <html itemscope itemtype="http://schema.org/Article">
-<head>
-    <title>Getting Started: Serving Web Content</title>
-    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="google-signin-client_id" content="480902791681-0jt4uk30kp0s1lgq50ed8aiqtv5geoc9.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/client:platform.js?onload=start" async defer></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script src="events.js"></script>
+    <head>
+        <title>Getting Started: Serving Web Content</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <meta name="google-signin-scope" content="profile email">
+        <meta name="google-signin-client_id" content="160162923887-g3vkhee7j8hkorp7brqerk3fpkbr42m4.apps.googleusercontent.com">
+
+        <script src="https://apis.google.com/js/platform.js" async defer></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        <script src="events.js"></script>
+
+        <link href="bootstrap.min.css" rel="stylesheet">
+        <link href="scrolling-nav.css" rel="stylesheet">
+
+    </head>
+    <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container">
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/single">Single Company</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link js-scroll-trigger" href="/compare">Compare Companies</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <header class="bg-primary text-white">
+        <div class="container text-center">
+            <h1>Welcome To The Consumer Financial Protection Bureau (CFPB) Comparison Tool</h1>
+            <p class="lead">a web app that allows you to see complaints consumers have made about companies</p>
+        </div>
+    </header>
+
+    <section id="about">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 mx-auto">
+                    <h2>Login With Your Google Account</h2>
+                    <div class="g-signin2" data-onsuccess="onSignIn"></div>
+                    <script>
+                        function onSignIn(googleUser) {
+                            // Useful data for your client-side scripts:
+                            var profile = googleUser.getBasicProfile();
+                            var id_token = googleUser.getAuthResponse().id_token;
+                            $('#signinButton').attr('style', 'display: none');
+                            window.localStorage.setItem("token", id_token);
+                        };
+                    </script>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+
 
     <script>
-        function start() {
-            gapi.load('auth2', function() {
-                auth2 = gapi.auth2.init({
-                    client_id: '951258662046-uekvbk63hahgj979dgnpsluvrhla2cdj.apps.googleusercontent.com',
-                    // Scopes to request in addition to 'profile' and 'email'
-                    //scope: 'additional_scope'
+        function signInCallback(authResult) {
+            if (authResult['code']) {
+                // Hide the sign-in button now that the user is authorized, for example:
+                $('#signinButton').attr('style', 'display: none');
+                $('#signOut').attr('style', 'display: block');
+                // Send the code to the server
+                $.ajax({
+                    type: 'POST',
+                    url: 'https://cfpb-ada.herokuapp.com/login',
+                    // Always include an `X-Requested-With` header in every AJAX request,
+                    // to protect against CSRF attacks.
+                    headers: {
+                        'X-Requested-With': 'XMLHttpRequest'
+                    },
+                    contentType: 'application/octet-stream; charset=utf-8',
+                    success: function(result) {
+                        alert("request worked");
+                    },
+                    data: authResult['code'],
+                    processData: false
                 });
-            });
+            } else {
+                alert("call failed");
+            }
         }
     </script>
-</head>
-<body>
-<p>View single company  <a href="/single">here</a></p>
-<p>Compare companies <a href="/compare">here</a></p>
-
-<button id="signinButton">Sign in with Google</button>
-<script>
-    $('#signinButton').click(function() {
-        // signInCallback defined in step 6.
-        auth2.grantOfflineAccess().then(signInCallback);
-    });
-</script>
-
-<a href="#" onclick="signOut();">Sign out</a>
-<script>
-    function signOut() {
-        var auth2 = gapi.auth2.getAuthInstance();
-
-        auth2.signOut().then(function () {
-            console.log('User signed out.');
-        });
-    }
-</script>
-
-
-<script>
-    function signInCallback(authResult) {
-        if (authResult['code']) {
-
-            // Hide the sign-in button now that the user is authorized, for example:
-            $('#signinButton').attr('style', 'display: none');
-
-            // Send the code to the server
-            $.ajax({
-                type: 'POST',
-                url: '/login',
-                // Always include an `X-Requested-With` header in every AJAX request,
-                // to protect against CSRF attacks.
-                headers: {
-                    'X-Requested-With': 'XMLHttpRequest'
-                },
-                contentType: 'application/octet-stream; charset=utf-8',
-                success: function(result) {
-                    alert(result);
-                },
-                processData: false,
-                data: authResult['code']
-            });
-        } else {
-            // There was an error.
-        }
-    }
-</script>
-</body>
+    </body>
 </html>
