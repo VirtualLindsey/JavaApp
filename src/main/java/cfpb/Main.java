@@ -20,8 +20,12 @@ import com.google.api.client.googleapis.auth.oauth2.*;
 import com.google.api.client.http.javanet.NetHttpTransport;
 import com.google.api.client.json.Json;
 import com.google.api.client.json.jackson2.JacksonFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -30,6 +34,7 @@ import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdToken.Payload;
 import com.google.api.client.googleapis.auth.oauth2.GoogleIdTokenVerifier;
+import org.springframework.web.servlet.DispatcherServlet;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.FileNotFoundException;
@@ -44,8 +49,17 @@ import static com.sun.org.apache.xalan.internal.xsltc.compiler.Constants.REDIREC
 public class Main {
   private ArrayList<String> sessions = new ArrayList<String>();
 
+  @Autowired
+  private DispatcherServlet servlet;
+
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
+  }
+
+  @Bean
+  public CommandLineRunner getCommandLineRunner(ApplicationContext context) {
+    servlet.setThrowExceptionIfNoHandlerFound(true);
+    return args -> {};
   }
 
   @RequestMapping("/")
