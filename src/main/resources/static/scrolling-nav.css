@@ -68,12 +68,13 @@ section {
 }
 
 #chart5{
-  width: 200px;
-  height: 200px;
+  width: 300px;
+  height: 300px;
   float: left;
 }
 
 
 #barCharts{
   clear: left;
+  padding-top: 75px;
 }

@@ -156,8 +156,8 @@ $(document).ready(function(){
                     // Set chart options
                     var title = count + ' complaints for: ' + $("#typeAheadID").val();
                     var options = {'title': title,
-                        'width':200,
-                        'height':200};
+                        'width':300,
+                        'height':300};
 
                     var chart_id = "";
                     var id = 0;
