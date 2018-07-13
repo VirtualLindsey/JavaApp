@@ -157,7 +157,8 @@ $(document).ready(function(){
                     var title = count + ' complaints for: ' + $("#typeAheadID").val();
                     var options = {'title': title,
                         'width':300,
-                        'height':300};
+                        'height':300,
+                        'legend': 'none'};
 
                     var chart_id = "";
                     var id = 0;
