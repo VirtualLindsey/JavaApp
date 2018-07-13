@@ -155,7 +155,7 @@ $(document).ready(function(){
 
                     // Set chart options
 
-                    var options = {'title':'Categorical Complaints for: ' + $("#typeAheadID").val(),
+                    var options = {'title': data.length + ' categorical complaints for: ' + $("#typeAheadID").val(),
                         'width':500,
                         'height':500};
 
