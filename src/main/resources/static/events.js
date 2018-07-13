@@ -92,11 +92,11 @@ $(document).ready(function(){
 
                     // Set chart options
 
-                    var options = {'title':'Categorical Complaints for: ' + $("#name").val(),
+                    var options = {'title':'Categorical Complaints for: ' + $("#typeAheadID").val(),
                         'width':700,
                         'height':700};
 
-                    var chart = new google.visualization.PieChart(document.getElementById('chart'));
+                    var chart = new google.visualization.PieChart(document.getElementById('charts'));
 
                     chart.draw(data, options);
                 }
