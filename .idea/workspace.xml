@@ -3,7 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="799bf21a-e0b8-429a-858a-b0e052e937cb" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/index.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/index.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/compare.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/compare.html" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/templates/single.html" afterPath="$PROJECT_DIR$/src/main/resources/templates/single.html" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -28,11 +29,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="true">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="203">
-              <caret line="71" column="81" lean-forward="false" selection-start-line="71" selection-start-column="81" selection-end-line="71" selection-end-column="81" />
+            <state relative-caret-position="558">
+              <caret line="49" column="10" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="49" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -90,11 +91,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compare.html" pinned="false" current-in-tab="false">
+      <file leaf-file-name="compare.html" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/compare.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="78">
-              <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="77" />
+            <state relative-caret-position="367">
+              <caret line="42" column="10" lean-forward="false" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -103,8 +104,8 @@
       <file leaf-file-name="single.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/resources/templates/single.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="267">
-              <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
+            <state relative-caret-position="192">
+              <caret line="42" column="10" lean-forward="false" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
               <folding />
             </state>
           </provider>
@@ -168,7 +169,6 @@
         <option value="$PROJECT_DIR$/src/main/resources/static/index.html" />
         <option value="$PROJECT_DIR$/src/main/java/cfpb/AppController.java" />
         <option value="$PROJECT_DIR$/src/main/resources/static/adaProject.css" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/compare.html" />
         <option value="$PROJECT_DIR$/src/main/java/cfpb/Application.java" />
         <option value="$PROJECT_DIR$/Procfile" />
         <option value="$PROJECT_DIR$/system.properties" />
@@ -177,10 +177,11 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/application.properties" />
         <option value="$PROJECT_DIR$/src/main/java/cfpb/Main.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/templates/single.html" />
         <option value="$PROJECT_DIR$/src/main/resources/static/scrolling-nav.css" />
         <option value="$PROJECT_DIR$/src/main/resources/static/events.js" />
         <option value="$PROJECT_DIR$/src/main/resources/templates/index.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/single.html" />
+        <option value="$PROJECT_DIR$/src/main/resources/templates/compare.html" />
       </list>
     </option>
   </component>
@@ -493,7 +494,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85119000" />
+    <option name="totallyTimeSpent" value="85230000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="146" y="23" width="1176" height="796" extended-state="0" />
@@ -719,14 +720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/compare.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="78">
-          <caret line="7" column="8" lean-forward="false" selection-start-line="7" selection-start-column="8" selection-end-line="7" selection-end-column="77" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/cfpb/google_auth.json">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -742,14 +735,6 @@
           <folding>
             <element signature="e#2037#2045#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/single.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="267">
-          <caret line="20" column="25" lean-forward="false" selection-start-line="20" selection-start-column="25" selection-end-line="20" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -803,8 +788,24 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/templates/index.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="203">
-          <caret line="71" column="81" lean-forward="false" selection-start-line="71" selection-start-column="81" selection-end-line="71" selection-end-column="81" />
+        <state relative-caret-position="558">
+          <caret line="49" column="10" lean-forward="true" selection-start-line="18" selection-start-column="4" selection-end-line="49" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/single.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="42" column="10" lean-forward="false" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/templates/compare.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="367">
+          <caret line="42" column="10" lean-forward="false" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
           <folding />
         </state>
       </provider>
