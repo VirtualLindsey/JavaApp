@@ -48,13 +48,13 @@ $(document).ready(function(){
     $('#search').click(function(){
         $.ajax({
             url: "https://data.consumerfinance.gov/resource/jhzv-w97w.json",
-            data: {"company": $("#name").val(),
+            data: {"company": $("#typeAheadID").val(),
                     "$limit": 10000},
             type: "GET",
             beforeSend: function(xhr){xhr.setRequestHeader("X-App-Token","z7A8MAj2zPIpDZ7PaggWlaYDL")},
             success: function(data){
                 $("#complaintCount").html(data.length);
-                $("#companyName").html($("#name").val());
+                $("#companyName").html($("#typeAheadID").val());
 
                 var complaints = {};
 
