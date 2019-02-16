@@ -8,8 +8,11 @@ The data source used in this project is a public API maintained by the federal g
 
 ## Technologies
 
--Java
--Google Charts
+-Java, Maven, Spring Boot   
+-JavaScript, JUnit    
+-OAuth   
+-Google Charts  
+
 
 
 ## User Stories 
